@@ -5,37 +5,30 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.w3c.dom.html.HTMLInputElement;
 
 import java.time.Duration;
 
 public class Homework_16  extends BaseTest {
+
     @Test
-    public void Registration() {
+    public void registrationTest() {
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--start-maximized");
 
         WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait (Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         String url = "https://qa.koel.app/";
         driver.get(url);
 
-        WebElement RegistrationInput = driver.findElement(By.cssSelector("[href='registration']"));
-        RegistrationInput.click();
-        RegistrationInput.clear();
-        RegistrationInput.sendKeys();
+        WebElement registrationLink = driver.findElement(By.cssSelector("[href='registration']"));
+        registrationLink.click();
 
-        WebElement EmailInput = driver.findElement(By.cssSelector("[type='email']"));
-        RegistrationInput.click();
-        RegistrationInput.clear();
-        RegistrationInput.sendKeys("pchelka2403@yahoo.com");
+        String registrationUrl = "https://qa.koel.app/registration";
+        Assert.assertEquals(driver.getCurrentUrl(),registrationUrl);
 
-        WebElement SubmitBtn = driver.findElement(By.cssSelector("[type='submit']"));
-        SubmitBtn.click();
-
-        WebElement RegistrationPage = driver.findElement(By.cssSelector("[href='registration']"));
-        Assert.assertTrue(RegistrationPage.isDisplayed());
         driver.quit();
 
 
