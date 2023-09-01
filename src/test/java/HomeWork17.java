@@ -2,7 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.Assert;
-public class homework17 extends BaseTest {
+public class HomeWork17 extends BaseTest {
     @Test
     public void addSongToPlaylist() throws InterruptedException {
         String expectedSongAddedMessage = "Added 1 song into Tanya";
