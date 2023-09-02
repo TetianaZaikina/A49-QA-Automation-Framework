@@ -3,37 +3,24 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
 public class Homework19 extends BaseTest {
-    public void deletePlaylist(){
-     navigateToPage();
-     provideEmail("pchelka240386@gmil.com");
-     providePassword("te$t$tudent");
-     clickSubmit();
-     clickOnPlaylist();
-     clickOnDeletePlaylistBtn();
-     clickShowSuccess();
-     checkShowSuccess();
-     clickOnOk();
 
-     
-     
-     
-     
+    @Test
+    public void deletePlaylist() throws InterruptedException {
+        loginCorrectCred();
+        clickSubmit();
+        Thread.sleep(5000);
+        clickOnPlaylist();
+        Thread.sleep(1000);
+        clickOnDeletePlaylistBtn();
+        clickOnOk();
+        Thread.sleep(1000);
+        checkShowSuccess();
     }
 
     private void clickOnOk() {
-        WebElement okBtn = driver.findElement (By.cssSelector(".ok"));
+        WebElement okBtn = driver.findElement(By.cssSelector(".ok"));
         okBtn.click();
-    }
-
-    private void checkShowSuccess() {
-    }
-
-    private void clickShowSuccess() {
-        WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
-        Assert.assertTrue(notificationIsDisplayed());
-
     }
 
     private void clickOnDeletePlaylistBtn() {
@@ -41,23 +28,13 @@ public class Homework19 extends BaseTest {
         deletePlaylistBtn.click();
     }
 
-    private void click() {
-    }
-
     private void clickOnPlaylist() {
-        WebElement playlist = driver.findElement(By.cssSelector("[href='#!/playlist/69325']"));
+        WebElement playlist = driver.findElement(By.cssSelector(".playlist:nth-child(3)"));
         playlist.click();
     }
-
-    private void clickSubmit() {
+    private void checkShowSuccess() {
+        WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
+        Assert.assertTrue(notification.isDisplayed());
     }
 
-    private void providePassword(String password) {
-    }
-
-    private void provideEmail(String email) {
-    }
-
-    private void navigateToPage() {
-    }
 }
