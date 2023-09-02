@@ -3,12 +3,11 @@
 
 <suite name="Homework18">
     <parameter name="BaseURL" value="https://qa.koel.app/"></parameter>
-
     <test name="Homework18" preserve-order="false">
         <classes>
-            <class name="Homework18"/>
+            <class name="Homework18">
                 <methods>
-                      <include name="playSong"/>
+                    <include name="playSong"/>
                 </methods>
             </class>
         </classes>
