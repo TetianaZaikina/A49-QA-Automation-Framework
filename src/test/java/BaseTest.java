@@ -31,12 +31,31 @@ public class BaseTest {
         url=BaseURL;
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
-        submit.click();
     }
 
     @AfterMethod
     public void closeBrowser() {
         driver.quit();
+    }
+
+    public void navigateToPage() {
+        driver.get(url);
+    }
+
+    public void provideEmail(String email) {
+        WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
+        emailField.clear();
+        emailField.sendKeys(email);
+    }
+
+    public void providePassword(String password) {
+        WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
+        passwordField.clear();
+        passwordField.sendKeys(password);
+    }
+
+    public void clickSubmit() {
+        WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
+        submit.click();
     }
 }
