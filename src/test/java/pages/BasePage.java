@@ -10,9 +10,9 @@ import java.time.Duration;
 import java.util.UUID;
 
 public class BasePage {
-    WebDriver driver;
-    WebDriverWait wait;
-    Actions actions;
+    protected Actions actions;
+    protected WebDriverWait wait;
+    protected WebDriver driver;
 
     public BasePage(WebDriver driver){
             this.driver = driver;
